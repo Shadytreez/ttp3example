@@ -145,9 +145,60 @@ function test(){
     alert("today");
 }
 
-document.getElementById("myFriend").addEventListener("click", test1);
+//document.getElementById("myFriend").addEventListener("click", test1);
 
 function test1(name1){
     alert("today" + name1);
 }
+
+//
+
+document.getElementById("myForm").addEventListener("submit",function(event){
+    /*
+    we want to get a value that been entered by a user in the form
+
+    */
+    let username = document.getElementById("username").value;
+    username = username.trim(); //get rid the extra space
+    
+    if(username == "" || username.length == 0)
+    {
+       
+        document.getElementById("username").style.border = "thick solid red";
+        alert("please enter valid user name");
+         
+    }
+    else
+    {
+        document.getElementById("username").style.border = "1px solid grey";
+        
+    }
+    
+    let comfirmPassword = document.getElementById("comfirmPassword").value;
+    let password = document.getElementById("password").value;
+
+    password = password.trim();
+    comfirmPassword = comfirmPassword.trim();
+
+    if(password !== comfirmPassword){
+        document.getElementById("password").style.border = "thick solid red";
+        document.getElementById("comfirmPassword").style.border = "thick solid red";
+        alert("password don't match");
+    }else{
+        document.getElementById("password").style.border = "1px solid grey";
+        document.getElementById("comfirmPassword").style.border = "1px solid grey";
+    }
+    let formTitle = document.getElementById("title");
+    formTitle.innerText = formTitle.innerText +"smp efwfw pog";
+    console.log(formTitle.innerText);
+
+    /*
+    let formTitle = document.getElementById("title");
+    formTitle.innerText = formTitle.innerText +"smp efwfw pog";
+    */
+    
+    event.preventDefault(); //
+});
+
+
     
